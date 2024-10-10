@@ -1,0 +1,26 @@
+{
+  "name": "node-file-manager",
+  "version": "1.0.0",
+  "description": "This is a training project on working with basic skills of working with nodejs in the RS school",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonSokolovsky/node-file-manager.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "AntonSokolovsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonSokolovsky/node-file-manager/issues"
+  },
+  "homepage": "https://github.com/AntonSokolovsky/node-file-manager#readme"
+}
