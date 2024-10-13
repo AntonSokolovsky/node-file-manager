@@ -4,6 +4,7 @@ import { up } from "./up.js";
 import { printCurrentDir } from "./utils/printCurrentDir.js";
 import { cd } from "./cd.js";
 import { ERROR_TEXT } from "./utils/errorsText.js";
+import { ls } from "./ls.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -19,6 +20,7 @@ printCurrentDir();
 const commandMap = new Map([
   ["up", up],
   ["cd", cd],
+  ["ls", ls],
 ]);
 
 const rl = readline.createInterface({
@@ -30,11 +32,11 @@ rl.on("line", async (input) => {
   const [command, ...args] = input.trim().split(" ");
   const commandsHandler = commandMap.get(command);
   if (commandsHandler) {
-    commandsHandler(...args);
+    await commandsHandler(...args);
   } else {
     console.log(ERROR_TEXT.invalidInput);
   }
-  printCurrentDir();
+  await printCurrentDir();
 });
 
 rl.on("close", () => {
