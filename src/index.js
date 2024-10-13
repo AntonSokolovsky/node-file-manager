@@ -5,6 +5,7 @@ import { printCurrentDir } from "./utils/printCurrentDir.js";
 import { cd } from "./cd.js";
 import { ERROR_TEXT } from "./utils/errorsText.js";
 import { ls } from "./ls.js";
+import { cat } from "./cat.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -21,6 +22,7 @@ const commandMap = new Map([
   ["up", up],
   ["cd", cd],
   ["ls", ls],
+  ["cat", cat],
 ]);
 
 const rl = readline.createInterface({
