@@ -6,6 +6,7 @@ import { cd } from "./cd.js";
 import { ERROR_TEXT } from "./utils/errorsText.js";
 import { ls } from "./ls.js";
 import { cat } from "./cat.js";
+import { add } from "./add.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -23,6 +24,7 @@ const commandMap = new Map([
   ["cd", cd],
   ["ls", ls],
   ["cat", cat],
+  ["add", add],
 ]);
 
 const rl = readline.createInterface({
