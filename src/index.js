@@ -3,6 +3,7 @@ import readline from "readline";
 import { up } from "./up.js";
 import { printCurrentDir } from "./utils/printCurrentDir.js";
 import { cd } from "./cd.js";
+import { ERROR_TEXT } from "./utils/errorsText.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -15,6 +16,11 @@ chdir(homedir());
 
 printCurrentDir();
 
+const commandMap = new Map([
+  ["up", up],
+  ["cd", cd],
+]);
+
 const rl = readline.createInterface({
   input: stdin,
   output: stdout,
@@ -22,13 +28,13 @@ const rl = readline.createInterface({
 
 rl.on("line", async (input) => {
   const [command, ...args] = input.trim().split(" ");
-  if (command === "up") {
-    up();
-    printCurrentDir();
-  } else if (command === "cd") {
-    cd(args[0]);
-    printCurrentDir();
+  const commandsHandler = commandMap.get(command);
+  if (commandsHandler) {
+    commandsHandler(...args);
+  } else {
+    console.log(ERROR_TEXT.invalidInput);
   }
+  printCurrentDir();
 });
 
 rl.on("close", () => {
