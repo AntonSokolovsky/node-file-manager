@@ -9,6 +9,7 @@ import { cat } from "./cat.js";
 import { add } from "./add.js";
 import { rn } from "./rn.js";
 import { cp } from "./cp.js";
+import { mv } from "./mv.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -29,6 +30,7 @@ const commandMap = new Map([
   ["add", add],
   ["rn", rn],
   ["cp", cp],
+  ["mv", mv],
 ]);
 
 const rl = readline.createInterface({
