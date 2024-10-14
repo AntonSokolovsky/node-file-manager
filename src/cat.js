@@ -1,8 +1,10 @@
 import { createReadStream } from "fs";
 import { ERROR_TEXT } from "./utils/errorsText.js";
+import path from "path";
 
-export async function cat(path) {
-  const stream = createReadStream(path, "utf-8");
+export async function cat(filePath) {
+  const sourceFilePath = path.resolve(process.cwd(), filePath);
+  const stream = createReadStream(sourceFilePath, "utf-8");
 
   let data = "";
 
