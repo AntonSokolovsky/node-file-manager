@@ -11,6 +11,7 @@ import { rn } from "./rn.js";
 import { cp } from "./cp.js";
 import { mv } from "./mv.js";
 import { rm } from "./rm.js";
+import { os } from "./os.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -33,6 +34,7 @@ const commandMap = new Map([
   ["cp", cp],
   ["mv", mv],
   ["rm", rm],
+  ["os", os],
 ]);
 
 const rl = readline.createInterface({
