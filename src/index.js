@@ -13,6 +13,8 @@ import { mv } from "./mv.js";
 import { rm } from "./rm.js";
 import { os } from "./os.js";
 import { hash } from "./hash.js";
+import { compress } from "./compress.js";
+import { decompress } from "./decompress.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -37,6 +39,8 @@ const commandMap = new Map([
   ["rm", rm],
   ["os", os],
   ["hash", hash],
+  ["compress", compress],
+  ["decompress", decompress],
 ]);
 
 const rl = readline.createInterface({
