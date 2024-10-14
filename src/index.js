@@ -12,6 +12,7 @@ import { cp } from "./cp.js";
 import { mv } from "./mv.js";
 import { rm } from "./rm.js";
 import { os } from "./os.js";
+import { hash } from "./hash.js";
 
 const { stdin, stdout, argv, chdir } = process;
 
@@ -35,6 +36,7 @@ const commandMap = new Map([
   ["mv", mv],
   ["rm", rm],
   ["os", os],
+  ["hash", hash],
 ]);
 
 const rl = readline.createInterface({
