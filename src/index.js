@@ -41,6 +41,7 @@ const commandMap = new Map([
   ["hash", hash],
   ["compress", compress],
   ["decompress", decompress],
+  [".exit", () => exit(username)],
 ]);
 
 const rl = readline.createInterface({
@@ -51,8 +52,13 @@ const rl = readline.createInterface({
 rl.on("line", async (input) => {
   const [command, ...args] = input.trim().split(" ");
   const commandsHandler = commandMap.get(command);
+
   if (commandsHandler) {
-    await commandsHandler(...args);
+    try {
+      await commandsHandler(...args);
+    } catch (error) {
+      console.log(ERROR_TEXT.operationFailed);
+    }
   } else {
     console.log(ERROR_TEXT.invalidInput);
   }
